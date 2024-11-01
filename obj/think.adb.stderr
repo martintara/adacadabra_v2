@@ -1,0 +1,16 @@
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/src/tasks/think.adb:14:38: error: "Directions" is not visible (more references follow)
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/src/tasks/think.adb:14:38: error: non-visible declaration at microbit-motordriver.ads:36
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/src/tasks/think.adb:39:18: error: "Stop" is not visible (more references follow)
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/src/tasks/think.adb:39:18: error: non-visible declaration at microbit-motordriver.ads:46
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/src/tasks/think.adb:39:18: error: non-visible declaration at nrf-timers.ads:91
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/src/tasks/think.adb:39:18: error: non-visible declaration at nrf-rtc.ads:45
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/src/tasks/think.adb:41:36: error: "Forward" is not visible (more references follow)
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/src/tasks/think.adb:41:36: error: non-visible declaration at microbit-motordriver.ads:36
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/src/tasks/think.adb:41:36: error: non-visible declaration at a-string.ads:32
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/src/tasks/think.adb:43:36: error: "Forward_Left" is not visible (more references follow)
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/src/tasks/think.adb:43:36: error: non-visible declaration at microbit-motordriver.ads:40
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/src/tasks/think.adb:52:36: error: "Backward" is not visible (more references follow)
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/src/tasks/think.adb:52:36: error: non-visible declaration at microbit-motordriver.ads:37
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/src/tasks/think.adb:52:36: error: non-visible declaration at a-string.ads:32
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/src/tasks/think.adb:69:18: error: "Turning" is not visible
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/src/tasks/think.adb:69:18: error: non-visible declaration at microbit-motordriver.ads:42

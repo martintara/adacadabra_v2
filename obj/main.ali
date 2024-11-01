@@ -20,7 +20,7 @@ RN
 RV STATIC_PRIORITIES
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U main%b		main.adb		ad6ef232 NE OO SU
+U main%b		main.adb		6a360b9a NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.numerics%s	a-numeri.ads		a-numeri.ali
 W ada.numerics.elementary_functions%s  a-nuelfu.ads  a-nuelfu.ali
@@ -130,8 +130,7 @@ D s-traent.ads		20240605191041 c81cbf8c system.traceback_entries%s
 D s-unstyp.ads		20240605191041 fa2a7f59 system.unsigned_types%s
 D s-wchcon.ads		20240605191041 d9032363 system.wch_con%s
 D s-wchstw.ads		20240605191041 2d112c01 system.wch_stw%s
-D tasklist.ads		20241030104135 2b2b83d6 tasklist%s
-D think.ads		20241030104135 a6355c0e think%s
+D tasklist.ads		20241101120134 ec737a7e tasklist%s
 G a e
 G c Z b b [main standard 16 11 none]
 G r c none [main standard 16 11 none] [put_line microbit__console 43 14 none]

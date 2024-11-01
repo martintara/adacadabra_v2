@@ -19,12 +19,13 @@ package body sense is
       Put_Line("Started sensing task.");
       loop
          aclock := Clock;
-         Add_Reading(FLBuf, FLS.Read);
-         Add_Reading(FRBuf, FRS.Read);
-         Add_Reading(BBuf, BS.Read);
-         Shared_Data.SetFLAvg(Average(FLBuf));
-         Shared_Data.SetFRAvg(Average(FRBuf));
-         Shared_Data.SetBAvg(Average(BBuf));
+         Put_Line("sensing");
+         --  Add_Reading(FLBuf, FLS.Read);
+         --  Add_Reading(FRBuf, FRS.Read);
+         --  Add_Reading(BBuf, BS.Read);
+         --  Shared_Data.SetFLAvg(Average(FLBuf));
+         --  Shared_Data.SetFRAvg(Average(FRBuf));
+         --  Shared_Data.SetBAvg(Average(BBuf));
          --HC-SR04 datasheet suggests a sensor reading interval of 60ms
          delay until aclock + Milliseconds(60);
       end loop;

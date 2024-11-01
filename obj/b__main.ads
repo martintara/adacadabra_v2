@@ -300,8 +300,6 @@ package ada_main is
    --  ringbuffer%b
    --  sense%s
    --  sense%b
-   --  think%s
-   --  think%b
    --  tasklist%s
    --  main%b
    --  END ELABORATION ORDER

@@ -55,9 +55,8 @@ package body ada_main is
    E274 : Short_Integer; pragma Import (Ada, E274, "protectedobjects_E");
    E276 : Short_Integer; pragma Import (Ada, E276, "ringbuffer_E");
    E272 : Short_Integer; pragma Import (Ada, E272, "sense_E");
-   E278 : Short_Integer; pragma Import (Ada, E278, "think_E");
 
-   Sec_Default_Sized_Stacks : array (1 .. 4) of aliased System.Secondary_Stack.SS_Stack (System.Parameters.Runtime_Default_Sec_Stack_Size);
+   Sec_Default_Sized_Stacks : array (1 .. 3) of aliased System.Secondary_Stack.SS_Stack (System.Parameters.Runtime_Default_Sec_Stack_Size);
 
    Local_Priority_Specific_Dispatching : constant String := "";
    Local_Interrupt_States : constant String := "";
@@ -144,7 +143,7 @@ package body ada_main is
 
       ada_main'Elab_Body;
       Default_Secondary_Stack_Size := System.Parameters.Runtime_Default_Sec_Stack_Size;
-      Binder_Sec_Stacks_Count := 4;
+      Binder_Sec_Stacks_Count := 3;
       Default_Sized_SS_Pool := Sec_Default_Sized_Stacks'Address;
 
       Runtime_Initialize (1);
@@ -245,9 +244,6 @@ package body ada_main is
       sense'elab_spec;
       sense'elab_body;
       E272 := E272 + 1;
-      think'elab_spec;
-      think'elab_body;
-      E278 := E278 + 1;
    end adainit;
 
    procedure Ada_Main_Program;
@@ -273,15 +269,14 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/act.o
-   --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/protectedobjects.o
-   --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/ringbuffer.o
-   --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/sense.o
-   --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/think.o
-   --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/tasklist.o
-   --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/main.o
-   --   -L/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/
-   --   -L/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/
+   --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/obj/act.o
+   --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/obj/protectedobjects.o
+   --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/obj/ringbuffer.o
+   --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/obj/sense.o
+   --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/obj/tasklist.o
+   --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/obj/main.o
+   --   -L/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/obj/
+   --   -L/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/obj/
    --   -L/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/boards/MicroBit_v2/obj/full_lib_Debug/
    --   -L/home/martin/.local/share/alire/toolchains/gnat_arm_elf_14.1.3_f019f928/arm-eabi/lib/gnat/embedded-nrf52833/adalib/
    --   -static
