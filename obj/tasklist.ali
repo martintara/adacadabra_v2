@@ -1,0 +1,71 @@
+V "GNAT Lib v14"
+A -gnatA
+A --RTS=/home/martin/.local/share/alire/toolchains/gnat_arm_elf_14.1.3_f019f928/arm-eabi/lib/gnat/embedded-nrf52833/
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mfpu=fpv4-sp-d16
+A -mcpu=cortex-m4
+A -fno-tree-loop-distribute-patterns
+A -g
+A -gnat2022
+A -gnateDPROFILING=false
+A -g
+A -mlibarch=armv7e-m+fp
+A -march=armv7e-m+fp
+P DB LC TF  ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U tasklist%s		tasklist.ads		79677ccd NE OO PK IL
+W act%s			act.adb			act.ali
+W sense%s		sense.adb		sense.ali
+W think%s		think.adb		think.ali
+
+D act.ads		20241030104135 ac7b4621 act%s
+D ada.ads		20240605191041 76789da1 ada%s
+D a-except.ads		20240605191041 e7970cd9 ada.exceptions%s
+D a-unccon.ads		20240605191041 0e9b276f ada.unchecked_conversion%s
+D sense.ads		20241030104135 5802e534 sense%s
+D system.ads		20240605191041 124d8146 system%s
+D s-bb.ads		20240605191041 09e072ae system.bb%s
+D s-bbbopa.ads		20240605191041 f68efaf0 system.bb.board_parameters%s
+D s-bbbosu.ads		20240605191041 0f820a2a system.bb.board_support%s
+D s-bbcppr.ads		20240605191041 c529bbcc system.bb.cpu_primitives%s
+D s-bbinte.ads		20240605191041 cf617f22 system.bb.interrupts%s
+D s-bbmcpa.ads		20240605191041 5a35b8f4 system.bb.mcu_parameters%s
+D s-bbpara.ads		20240605191041 1ae191c6 system.bb.parameters%s
+D s-bbthre.ads		20240605191041 5f49caa9 system.bb.threads%s
+D s-bbthqu.ads		20240605191041 cd23d79e system.bb.threads.queues%s
+D s-bbtime.ads		20240605191041 ad086247 system.bb.time%s
+D s-multip.ads		20240605191041 f33e0e35 system.multiprocessors%s
+D s-osinte.ads		20240605191041 229b14dd system.os_interface%s
+D s-parame.ads		20240605191041 07f3e19f system.parameters%s
+D s-secsta.ads		20240605191041 bd894d4b system.secondary_stack%s
+D s-stalib.ads		20240605191041 1c9580f6 system.standard_library%s
+D s-stoele.ads		20240605191041 ccded4e8 system.storage_elements%s
+D s-tasinf.ads		20240605191041 801abd01 system.task_info%s
+D s-taspri.ads		20240605191041 37f162b4 system.task_primitives%s
+D s-taskin.ads		20240605191041 989d56fd system.tasking%s
+D s-tasres.ads		20240605191041 0c8ef6fb system.tasking.restricted%s
+D s-tarest.ads		20240605191041 c88b6d9a system.tasking.restricted.stages%s
+D s-traent.ads		20240605191041 c81cbf8c system.traceback_entries%s
+D tasklist.ads		20241030104135 2b2b83d6 tasklist%s
+D think.ads		20241030104135 a6355c0e think%s
+G a e
+X 1 act.ads
+1K9*act 3e8 29|2w6
+X 5 sense.ads
+1K9*sense 3e10 29|3w6
+X 20 s-secsta.ads
+46P9*SS_Stack_Ptr(43R9)
+X 25 s-taskin.ads
+398V13*Get_Sec_Stack{20|46P9} 399i<c,__gnat_get_secondary_stack>22
+X 27 s-tarest.ads
+232U14*Activate_All_Tasks_Sequential 233i<c,__gnat_activate_all_tasks>22
+X 29 tasklist.ads
+5K9*tasklist 6l5 6e13
+X 30 think.ads
+1K9*think 29|1w6 30|3e10
+

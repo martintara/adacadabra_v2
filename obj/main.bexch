@@ -1,0 +1,28 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/default.gpr
+20241030104135 106096b4ebba42fdc9e3a2f936b85158
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/boards/MicroBit_v2/microbit_v2_full.gpr
+20240925104658 70e1d56225783ca8da74857c75a27356
+[BOUND OBJECT FILES]
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/act.o
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/protectedobjects.o
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/ringbuffer.o
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/sense.o
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/think.o
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/tasklist.o
+/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-L/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/
+-L/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/ada_protected_object/obj/
+-L/home/martin/adacadabra/Code/libs/Ada_Drivers_Library/boards/MicroBit_v2/obj/full_lib_Debug/
+-L/home/martin/.local/share/alire/toolchains/gnat_arm_elf_14.1.3_f019f928/arm-eabi/lib/gnat/embedded-nrf52833/adalib/
+-static
+-static-libgcc
+/home/martin/.local/share/alire/toolchains/gnat_arm_elf_14.1.3_f019f928/arm-eabi/lib/gnat/embedded-nrf52833/adalib/libgnarl.a
+/home/martin/.local/share/alire/toolchains/gnat_arm_elf_14.1.3_f019f928/arm-eabi/lib/gnat/embedded-nrf52833/adalib/libgnat.a
