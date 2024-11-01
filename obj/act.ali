@@ -47,7 +47,7 @@ Z system.tasking.restricted.stages%s  s-tarest.adb  s-tarest.ali
 T 1 1
 
 D act.ads		20241030104135 ac7b4621 act%s
-D act.adb		20241030170518 f9082d66 act%b
+D act.adb		20241101141527 f9082d66 act%b
 D ada.ads		20240605191041 76789da1 ada%s
 D a-except.ads		20240605191041 e7970cd9 ada.exceptions%s
 D a-finali.ads		20240605191041 bf4f806b ada.finalization%s
@@ -122,10 +122,10 @@ G c Z s s [acttaskTKVIP act 2 1 none]
 G r c none [b act 5 1 none] [put_line microbit__console 43 14 none]
 G r c none [acttaskTK act 2 6 none] [put_line microbit__console 43 14 none]
 X 1 act.ads
-1K9*act 3l5 3e8 2|5b14 16l5 16t8
-2t6*acttask 2|6b14 15l8 15t15
+1K9*act 3l5 3e8 2|5b14 19l5 19t8
+2t6*acttask 2|6b14 18l8 18t15
 X 2 act.adb
-7m7 aclock{6|50M9} 11m10 13r22
+7m7 aclock{6|50M9} 11m10 16r22
 X 3 ada.ads
 16K9*Ada 2|1r6 1r25 3|20e8
 X 6 a-reatim.ads
@@ -133,8 +133,8 @@ X 6 a-reatim.ads
 50M9*Time<47|46M9> 2|7r16
 60I9*Time_Span<47|81I9>
 67V13*Clock{50M9}<47|134p13> 2|11s20
-71V14*"+"{50M9} 2|13s29
-130V13*Seconds{60I9} 2|13s31
+71V14*"+"{50M9} 2|16s29
+130V13*Seconds{60I9} 2|16s31
 X 15 hal-gpio.ads
 47h9*GPIO_Point
 X 16 hal-i2c.ads
