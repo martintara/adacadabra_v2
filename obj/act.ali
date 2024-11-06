@@ -26,14 +26,16 @@ RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_ELABORATION_CODE
 RV MAX_TASKS=1
 
-U act%b			act.adb			6fe17b07 OO PK IL
+U act%b			act.adb			5ca0b38a OO PK IL
 W ada%s			ada.ads			ada.ali
 W ada.real_time%s	a-reatim.adb		a-reatim.ali
 Z ada.real_time.delays%s  a-retide.adb		a-retide.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 W microbit%s		microbit.ads		microbit.ali
 W microbit.console%s	microbit-console.adb	microbit-console.ali  AD
+W microbit.motordriver%s  microbit-motordriver.adb  microbit-motordriver.ali
 W microbit.types%s	microbit-types.ads	microbit-types.ali
+W protectedobjects%s	protectedobjects.adb	protectedobjects.ali
 Z system.tasking.restricted.stages%s  s-tarest.adb  s-tarest.ali
 
 U act%s			act.ads			ac7b4621 EE OO PK IL
@@ -47,7 +49,7 @@ Z system.tasking.restricted.stages%s  s-tarest.adb  s-tarest.ali
 T 1 1
 
 D act.ads		20241106095306 ac7b4621 act%s
-D act.adb		20241106095306 eeb89178 act%b
+D act.adb		20241106124443 5641e5b2 act%b
 D ada.ads		20240605191041 76789da1 ada%s
 D a-except.ads		20240605191041 e7970cd9 ada.exceptions%s
 D a-finali.ads		20240605191041 bf4f806b ada.finalization%s
@@ -59,6 +61,7 @@ D a-sttebu.ads		20240605191041 f1ad67a2 ada.strings.text_buffers%s
 D a-stuten.ads		20240605191041 c6ced0ae ada.strings.utf_encoding%s
 D a-tags.ads		20240605191041 9eaa38c6 ada.tags%s
 D a-unccon.ads		20240605191041 0e9b276f ada.unchecked_conversion%s
+D dfr0548.ads		20240925104658 73faa7eb dfr0548%s
 D hal.ads		20240925104659 2b42c80e hal%s
 D hal-gpio.ads		20240925104659 7f0c2ffe hal.gpio%s
 D hal-i2c.ads		20240925104659 416d8959 hal.i2c%s
@@ -67,6 +70,7 @@ D hal-uart.ads		20240925104659 d58316b4 hal.uart%s
 D interfac.ads		20240605191041 9111f9c1 interfaces%s
 D microbit.ads		20240925104658 c5aa85df microbit%s
 D microbit-console.ads	20240925104658 0bb00661 microbit.console%s
+D microbit-motordriver.ads  20241106122006 b63e1eb7 microbit.motordriver%s
 D microbit-types.ads	20240925104658 e97b8e18 microbit.types%s
 D nrf.ads		20240925104658 74cf72f5 nrf%s
 D nrf-device.ads	20240925104658 9c9916c4 nrf.device%s
@@ -82,6 +86,7 @@ D nrf_svd-spi.ads	20240925104658 6e2ffb69 nrf_svd.spi%s
 D nrf_svd-timer.ads	20240925104658 ba50db1c nrf_svd.timer%s
 D nrf_svd-twi.ads	20240925104658 68301534 nrf_svd.twi%s
 D nrf_svd-uart.ads	20240925104658 83bcebc8 nrf_svd.uart%s
+D protectedobjects.ads	20241106095306 3d86a2f0 protectedobjects%s
 D system.ads		20240605191041 124d8146 system%s
 D s-bb.ads		20240605191041 09e072ae system.bb%s
 D s-bbbopa.ads		20240605191041 f68efaf0 system.bb.board_parameters%s
@@ -96,6 +101,8 @@ D s-bbtime.ads		20240605191041 ad086247 system.bb.time%s
 D s-finmas.ads		20240605191041 28987ac5 system.finalization_masters%s
 D s-finroo.ads		20240605191041 4ff27390 system.finalization_root%s
 D s-multip.ads		20240605191041 f33e0e35 system.multiprocessors%s
+D s-mufalo.ads		20240605191041 3dca0374 system.multiprocessors.fair_locks%s
+D s-musplo.ads		20240605191041 69fa25c4 system.multiprocessors.spin_locks%s
 D s-osinte.ads		20240605191041 229b14dd system.os_interface%s
 D s-parame.ads		20240605191041 07f3e19f system.parameters%s
 D s-pooglo.ads		20240605191041 91708d21 system.pool_global%s
@@ -109,6 +116,7 @@ D s-stratt.ads		20240605191041 a1861007 system.stream_attributes%s
 D s-tasinf.ads		20240605191041 801abd01 system.task_info%s
 D s-taspri.ads		20240605191041 37f162b4 system.task_primitives%s
 D s-taskin.ads		20240605191041 989d56fd system.tasking%s
+D s-taprob.ads		20240605191041 c8fc0753 system.tasking.protected_objects%s
 D s-tasres.ads		20240605191041 0c8ef6fb system.tasking.restricted%s
 D s-tarest.ads		20240605191041 c88b6d9a system.tasking.restricted.stages%s
 D s-traent.ads		20240605191041 c81cbf8c system.traceback_entries%s
@@ -116,47 +124,51 @@ D s-unstyp.ads		20240605191041 fa2a7f59 system.unsigned_types%s
 D s-wchcon.ads		20240605191041 d9032363 system.wch_con%s
 D s-wchstw.ads		20240605191041 2d112c01 system.wch_stw%s
 G a e
-G c b b b [b act 5 1 none]
+G c b b b [b act 7 1 none]
 G c Z s b [acttaskTK act 2 6 none]
 G c Z s s [acttaskTKVIP act 2 1 none]
-G r c none [b act 5 1 none] [put_line microbit__console 43 14 none]
+G r c none [b act 7 1 none] [put_line microbit__console 43 14 none]
 G r c none [acttaskTK act 2 6 none] [put_line microbit__console 43 14 none]
 X 1 act.ads
-1K9*act 3l5 3e8 2|5b14 17l5 17t8
-2t6*acttask 2|6b14 16l8 16t15
+1K9*act 3l5 3e8 2|7b14 34l5 34t8
+2t6*acttask 2|8b14 33l8 33t15
 X 2 act.adb
-7m7 aclock{6|50M9} 11m10 14r22
+9m7 aclock{6|50M9} 13m10 31r22
 X 3 ada.ads
 16K9*Ada 2|1r6 1r25 3|20e8
 X 6 a-reatim.ads
 40K13*Real_Time 2|1w10 1r29 6|181e18
-50M9*Time<47|46M9> 2|7r16
-60I9*Time_Span<47|81I9>
-67V13*Clock{50M9}<47|134p13> 2|11s20
-71V14*"+"{50M9} 2|14s29
-130V13*Seconds{60I9} 2|14s31
-X 15 hal-gpio.ads
+50M9*Time<50|46M9> 2|9r16
+60I9*Time_Span<50|81I9>
+67V13*Clock{50M9}<50|134p13> 2|13s20
+71V14*"+"{50M9} 2|31s29
+130V13*Seconds{60I9} 2|31s31
+X 16 hal-gpio.ads
 47h9*GPIO_Point
-X 16 hal-i2c.ads
+X 17 hal-i2c.ads
 48h9*I2C_Port
-X 17 hal-spi.ads
+X 18 hal-spi.ads
 48h9*SPI_Port
-X 18 hal-uart.ads
+X 19 hal-uart.ads
 48h9*UART_Port
-X 20 microbit.ads
-57K9*MicroBit 2|2r6 2r28 3r6 3r26 20|114e13
-X 21 microbit-console.ads
-32K18*Console 2|2w15 2r37 21|49e21
-43U14*Put_Line 2|9s7 13s7
-X 22 microbit-types.ads
-1K18*Types 2|3w15 3r35 22|5e19
-X 47 s-bbtime.ads
+X 21 microbit.ads
+57K9*MicroBit 2|2r6 2r28 3r6 3r26 5r6 5r32 21|114e13
+X 22 microbit-console.ads
+32K18*Console 2|2w15 2r37 22|49e21
+43U14*Put_Line 2|11s7
+X 23 microbit-motordriver.ads
+34K18*MotorDriver 2|5w15 5r41 23|69e25
+X 24 microbit-types.ads
+1K18*Types 2|3w15 3r35 24|5e19
+X 39 protectedobjects.ads
+4K9*protectedobjects 2|4w6 4r28 39|24e21
+X 50 s-bbtime.ads
 46M9*Time
 81I9*Time_Span<long_long_integer>
-X 56 s-secsta.ads
+X 61 s-secsta.ads
 46P9*SS_Stack_Ptr(43R9)
-X 63 s-taskin.ads
-398V13*Get_Sec_Stack{56|46P9} 399i<c,__gnat_get_secondary_stack>22
-X 65 s-tarest.ads
+X 68 s-taskin.ads
+398V13*Get_Sec_Stack{61|46P9} 399i<c,__gnat_get_secondary_stack>22
+X 71 s-tarest.ads
 232U14*Activate_All_Tasks_Sequential 233i<c,__gnat_activate_all_tasks>22
 

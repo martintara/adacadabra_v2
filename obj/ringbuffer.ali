@@ -45,7 +45,7 @@ D hal-spi.ads		20240925104659 fe139819 hal.spi%s
 D hal-uart.ads		20240925104659 d58316b4 hal.uart%s
 D interfac.ads		20240605191041 9111f9c1 interfaces%s
 D microbit.ads		20240925104658 c5aa85df microbit%s
-D microbit-motordriver.ads  20241030093415 b63e1eb7 microbit.motordriver%s
+D microbit-motordriver.ads  20241106122006 b63e1eb7 microbit.motordriver%s
 D microbit-types.ads	20240925104658 e97b8e18 microbit.types%s
 D nrf.ads		20240925104658 74cf72f5 nrf%s
 D nrf-device.ads	20240925104658 9c9916c4 nrf.device%s

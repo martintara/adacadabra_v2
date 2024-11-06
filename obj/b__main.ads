@@ -290,12 +290,12 @@ package ada_main is
    --  microbit.timehighspeed%s
    --  microbit.timehighspeed%b
    --  microbit.types%s
-   --  act%s
-   --  act%b
    --  microbit.ultrasonic%s
    --  microbit.ultrasonic%b
    --  protectedobjects%s
    --  protectedobjects%b
+   --  act%s
+   --  act%b
    --  ringbuffer%s
    --  ringbuffer%b
    --  sense%s

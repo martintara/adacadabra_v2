@@ -69,7 +69,7 @@ D microbit.ads		20240925104658 c5aa85df microbit%s
 D microbit-accelerometer.ads  20240925104658 fc78b8ce microbit.accelerometer%s
 D microbit-console.ads	20240925104658 0bb00661 microbit.console%s
 D microbit-iosfortasking.ads  20240925104658 7dfd8b70 microbit.iosfortasking%s
-D microbit-motordriver.ads  20241030093415 b63e1eb7 microbit.motordriver%s
+D microbit-motordriver.ads  20241106122006 b63e1eb7 microbit.motordriver%s
 D microbit-servos.ads	20240925104658 3dc96590 microbit.servos%s
 D microbit-timehighspeed.ads  20240925104658 1d0073c3 microbit.timehighspeed%s
 D microbit-types.ads	20240925104658 e97b8e18 microbit.types%s

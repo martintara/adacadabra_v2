@@ -50,11 +50,11 @@ package body ada_main is
    E212 : Short_Integer; pragma Import (Ada, E212, "microbit__motordriver_E");
    E214 : Short_Integer; pragma Import (Ada, E214, "microbit__servos_E");
    E263 : Short_Integer; pragma Import (Ada, E263, "microbit__timehighspeed_E");
-   E268 : Short_Integer; pragma Import (Ada, E268, "act_E");
    E261 : Short_Integer; pragma Import (Ada, E261, "microbit__ultrasonic_E");
-   E274 : Short_Integer; pragma Import (Ada, E274, "protectedobjects_E");
+   E272 : Short_Integer; pragma Import (Ada, E272, "protectedobjects_E");
+   E268 : Short_Integer; pragma Import (Ada, E268, "act_E");
    E276 : Short_Integer; pragma Import (Ada, E276, "ringbuffer_E");
-   E272 : Short_Integer; pragma Import (Ada, E272, "sense_E");
+   E274 : Short_Integer; pragma Import (Ada, E274, "sense_E");
    E278 : Short_Integer; pragma Import (Ada, E278, "think_E");
 
    Sec_Default_Sized_Stacks : array (1 .. 4) of aliased System.Secondary_Stack.SS_Stack (System.Parameters.Runtime_Default_Sec_Stack_Size);
@@ -235,16 +235,16 @@ package body ada_main is
       E214 := E214 + 1;
       Microbit.Timehighspeed'Elab_Body;
       E263 := E263 + 1;
+      E261 := E261 + 1;
+      protectedobjects'elab_spec;
+      E272 := E272 + 1;
       act'elab_spec;
       act'elab_body;
       E268 := E268 + 1;
-      E261 := E261 + 1;
-      protectedobjects'elab_spec;
-      E274 := E274 + 1;
       E276 := E276 + 1;
       sense'elab_spec;
       sense'elab_body;
-      E272 := E272 + 1;
+      E274 := E274 + 1;
       think'elab_spec;
       think'elab_body;
       E278 := E278 + 1;
@@ -273,8 +273,8 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/obj/act.o
    --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/obj/protectedobjects.o
+   --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/obj/act.o
    --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/obj/ringbuffer.o
    --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/obj/sense.o
    --   /home/martin/adacadabra/Code/libs/Ada_Drivers_Library/examples/MicroBit_v2/ravenscar/adacadabra_v2/obj/think.o

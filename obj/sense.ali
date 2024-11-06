@@ -75,7 +75,7 @@ D hal-uart.ads		20240925104659 d58316b4 hal.uart%s
 D interfac.ads		20240605191041 9111f9c1 interfaces%s
 D microbit.ads		20240925104658 c5aa85df microbit%s
 D microbit-console.ads	20240925104658 0bb00661 microbit.console%s
-D microbit-motordriver.ads  20241030093415 b63e1eb7 microbit.motordriver%s
+D microbit-motordriver.ads  20241106122006 b63e1eb7 microbit.motordriver%s
 D microbit-timehighspeed.ads  20240925104658 1d0073c3 microbit.timehighspeed%s
 D microbit-types.ads	20240925104658 e97b8e18 microbit.types%s
 D microbit-ultrasonic.ads  20240925104658 78c286a7 microbit.ultrasonic%s

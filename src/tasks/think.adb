@@ -22,8 +22,6 @@ package body think is
       Put_Line("Started thinking task.");
       loop
          aclock := Clock;
-
-         Put_Line("Started thinking task.");
          FLReading := Integer(Shared_Data.GetFLAvg);
          FRReading := Integer(Shared_Data.GetFRAvg);
          BReading := Integer(Shared_Data.GetBAvg);
@@ -32,43 +30,23 @@ package body think is
          Put_Line("BS: " & Integer'Image(BReading));
 
                   -- State machine logic
-         case Shared_Data.GetDir is
-            when Stop =>
-               if FLReading > 100 and FRReading > 100 then
-                  Update_Direction(Forward);
-               elsif FLReading > 100 and FRReading < 50 then
-                  Update_Direction(Forward_Left);
-               elsif FLReading < 50 and FRReading > 100 then
-                  Update_Direction(Forward);
-               end if;
+         --  case Shared_Data.GetDir is
+         --     when Stop =>
+         --        --  Put_Line("test ");
+         --        if FLReading > 100 and FRReading > 100 then
+         --           Update_Direction(Forward);
+         --  --        else
+         --  --           --  Update_Direction(ServoReading);
+         --  --            Put_Line("test ");
+         --        end if;
 
-            when Forward =>
-               if FLReading < 50 or FRReading < 50 then
-                  Update_Direction(Stop);
-               elsif BReading > 100 then
-                  Update_Direction(Backward);
-               end if;
-
-            when Backward =>
-               if BReading < 50 then
-                  Update_Direction(Stop);
-               elsif FLReading > 100 then
-                  Update_Direction(Forward);
-               end if;
-
-            when Forward_Left =>
-               if FLReading > 100 and FRReading > 100 then
-                  Update_Direction(Forward);
-               elsif FLReading < 50 then
-                  Update_Direction(Stop);
-               end if;
-
-            when Turning =>
-               Update_Direction(Stop);
-
-            when others =>
-               Update_Direction(Stop);
-         end case;
+         --    when Forward =>
+         --        if FLReading < 100 and FRReading < 100 then
+         --           Update_Direction(Stop);
+         --        end if;
+         --    when others =>
+         --            Put_Line("others");
+         --  end case;
 
          delay until aclock + Milliseconds(600);
       end loop;

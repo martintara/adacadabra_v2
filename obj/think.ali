@@ -17,7 +17,6 @@ P DB LC TF  SS ZX
 
 RN
 RV NO_DELAY
-RV NO_DIRECT_BOOLEAN_OPERATORS
 RV NO_ENUMERATION_MAPS
 RV NO_FLOATING_POINT
 RV NO_IMPLICIT_CONDITIONALS
@@ -31,7 +30,7 @@ RV NO_ELABORATION_CODE
 RV MAX_TASKS=1
 RV MAX_ENTRY_QUEUE_LENGTH=1+
 
-U think%b		think.adb		fe7b93e2 OO PK IL
+U think%b		think.adb		61c9861c OO PK IL
 W ada%s			ada.ads			ada.ali
 W ada.real_time%s	a-reatim.adb		a-reatim.ali
 Z ada.real_time.delays%s  a-retide.adb		a-retide.ali
@@ -74,7 +73,7 @@ D hal-uart.ads		20240925104659 d58316b4 hal.uart%s
 D interfac.ads		20240605191041 9111f9c1 interfaces%s
 D microbit.ads		20240925104658 c5aa85df microbit%s
 D microbit-console.ads	20240925104658 0bb00661 microbit.console%s
-D microbit-motordriver.ads  20241030093415 b63e1eb7 microbit.motordriver%s
+D microbit-motordriver.ads  20241106122006 b63e1eb7 microbit.motordriver%s
 D microbit-types.ads	20240925104658 e97b8e18 microbit.types%s
 D nrf.ads		20240925104658 74cf72f5 nrf%s
 D nrf-device.ads	20240925104658 9c9916c4 nrf.device%s
@@ -137,7 +136,7 @@ D s-vs_uns.ads		20240605191041 e7f47a27 system.vs_uns%s
 D s-wchcon.ads		20240605191041 d9032363 system.wch_con%s
 D s-wchstw.ads		20240605191041 2d112c01 system.wch_stw%s
 D think.ads		20241106095306 a6355c0e think%s
-D think.adb		20241106095306 fed4dff5 think%b
+D think.adb		20241106124519 6166ca0b think%b
 G a e
 G c b b b [b think 7 1 none]
 G c Z s b [thinktaskTK think 2 9 none]
@@ -146,14 +145,10 @@ G r c none [b think 7 1 none] [put_line microbit__console 43 14 none]
 G r p none [b think 7 1 none] [getflavg protectedobjects__protobjs 7 16 none]
 G r p none [b think 7 1 none] [getfravg protectedobjects__protobjs 6 16 none]
 G r p none [b think 7 1 none] [getbavg protectedobjects__protobjs 8 16 none]
-G r p none [b think 7 1 none] [getdir protectedobjects__protobjs 9 16 none]
-G r p none [b think 7 1 none] [setdir protectedobjects__protobjs 14 17 none]
 G r c none [thinktaskTK think 2 9 none] [put_line microbit__console 43 14 none]
 G r p none [thinktaskTK think 2 9 none] [getflavg protectedobjects__protobjs 7 16 none]
 G r p none [thinktaskTK think 2 9 none] [getfravg protectedobjects__protobjs 6 16 none]
 G r p none [thinktaskTK think 2 9 none] [getbavg protectedobjects__protobjs 8 16 none]
-G r p none [thinktaskTK think 2 9 none] [getdir protectedobjects__protobjs 9 16 none]
-G r p none [thinktaskTK think 2 9 none] [setdir protectedobjects__protobjs 14 17 none]
 X 1 ada.ads
 16K9*Ada 20e8 84|1r6 1r25
 X 4 a-reatim.ads
@@ -161,8 +156,8 @@ X 4 a-reatim.ads
 50M9*Time<48|46M9> 84|9r16
 60I9*Time_Span<48|81I9>
 67V13*Clock{50M9}<48|134p13> 84|24s20
-71V14*"+"{50M9} 84|73s29
-127V13*Milliseconds{60I9} 84|73s31
+71V14*"+"{50M9} 84|51s29
+127V13*Milliseconds{60I9} 84|51s31
 X 14 hal-gpio.ads
 47h9*GPIO_Point
 X 15 hal-i2c.ads
@@ -175,25 +170,19 @@ X 19 microbit.ads
 57K9*MicroBit 114e13 84|2r6 2r28 3r6 3r26 5r6 5r32
 X 20 microbit-console.ads
 32K18*Console 49e21 84|2w15 2r37
-43U14*Put_Line 84|18s10 22s7 26s10 30s10 31s10 32s10
+43U14*Put_Line 84|18s10 22s7 28s10 29s10 30s10
 X 21 microbit-motordriver.ads
 34K18*MotorDriver 69e25 84|5w15 5r41
 36E9*Directions 46e29 84|15r38 18r39
-36n24*Forward{36E9} 84|38r36 42r36 45r18 56r36 61r36
-37n24*Backward{36E9} 84|49r36 52r18
-40n24*Forward_Left{36E9} 84|40r36 59r18
-42n24*Turning{36E9} 84|66r18
-46n24*Stop{36E9} 84|36r18 47r36 54r36 63r36 67r33 70r33
 X 22 microbit-types.ads
 1K18*Types 5e19 84|3w15 3r35
 X 37 protectedobjects.ads
 4K9*protectedobjects 24e21 84|4w6 4r28
-6V16 GetFRAvg{float} 84|28s43
-7V16 GetFLAvg{float} 84|27s43
-8V16 GetBAvg{float} 84|29s42
-9V16 GetDir{21|36E9} 84|35s27
+6V16 GetFRAvg{float} 84|26s43
+7V16 GetFLAvg{float} 84|25s43
+8V16 GetBAvg{float} 84|27s42
 14U17 SetDir 84|17s22
-23w4*Shared_Data{5W19} 84|17r10 27r31 28r31 29r30 35r15
+23w4*Shared_Data{5W19} 84|17r10 25r31 26r31 27r30
 X 48 s-bbtime.ads
 46M9*Time
 81I9*Time_Span<long_long_integer>
@@ -204,14 +193,13 @@ X 68 s-taskin.ads
 X 71 s-tarest.ads
 232U14*Activate_All_Tasks_Sequential 233i<c,__gnat_activate_all_tasks>22
 X 83 think.ads
-1K9*think 3l5 3e10 84|7b14 76l5 76t10
-2t9*thinktask 84|8b14 75l8 75t17
+1K9*think 3l5 3e10 84|7b14 54l5 54t10
+2t9*thinktask 84|8b14 53l8 53t17
 X 84 think.adb
-9m7 aclock{4|50M9} 24m10 73r22
-10i7 FLReading{integer} 27m10 30r43 37r19 39r22 41r22 46r19 55r22 60r19 62r22
-11i7 FRReading{integer} 28m10 31r43 37r39 39r42 41r41 46r37 60r39
-12i7 BReading{integer} 29m10 32r42 48r22 53r19
-15U17 Update_Direction 15b17 15>34 19l11 19t27 38s19 40s19 42s19 47s19 49s19
-. 54s19 56s19 61s19 63s19 67s16 70s16
+9m7 aclock{4|50M9} 24m10 51r22
+10i7 FLReading{integer} 25m10 28r43
+11i7 FRReading{integer} 26m10 29r43
+12i7 BReading{integer} 27m10 30r42
+15U17 Update_Direction 15b17 15>34 19l11 19t27
 15e34 D{21|36E9} 17r29 18r56
 
