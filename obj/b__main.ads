@@ -193,6 +193,8 @@ package ada_main is
    --  system.assertions%b
    --  system.pool_global%s
    --  system.pool_global%b
+   --  system.relative_delays%s
+   --  system.relative_delays%b
    --  system.tasking.protected_objects%s
    --  system.tasking.protected_objects%b
    --  system.tasking.restricted%s
@@ -294,8 +296,6 @@ package ada_main is
    --  microbit.ultrasonic%b
    --  protectedobjects%s
    --  protectedobjects%b
-   --  act%s
-   --  act%b
    --  ringbuffer%s
    --  ringbuffer%b
    --  sense%s

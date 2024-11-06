@@ -28,7 +28,7 @@ RV NO_ELABORATION_CODE
 RV MAX_TASKS=1
 RV MAX_ENTRY_QUEUE_LENGTH=1+
 
-U sense%b		sense.adb		dd1ae94b OO PK IL
+U sense%b		sense.adb		7eb84a0e OO PK IL
 W ada%s			ada.ads			ada.ali
 W ada.real_time%s	a-reatim.adb		a-reatim.ali
 Z ada.real_time.delays%s  a-retide.adb		a-retide.ali
@@ -75,7 +75,7 @@ D hal-uart.ads		20240925104659 d58316b4 hal.uart%s
 D interfac.ads		20240605191041 9111f9c1 interfaces%s
 D microbit.ads		20240925104658 c5aa85df microbit%s
 D microbit-console.ads	20240925104658 0bb00661 microbit.console%s
-D microbit-motordriver.ads  20241106122006 b63e1eb7 microbit.motordriver%s
+D microbit-motordriver.ads  20241106144353 b63e1eb7 microbit.motordriver%s
 D microbit-timehighspeed.ads  20240925104658 1d0073c3 microbit.timehighspeed%s
 D microbit-types.ads	20240925104658 e97b8e18 microbit.types%s
 D microbit-ultrasonic.ads  20240925104658 78c286a7 microbit.ultrasonic%s
@@ -94,7 +94,7 @@ D nrf_svd-spi.ads	20240925104658 6e2ffb69 nrf_svd.spi%s
 D nrf_svd-timer.ads	20240925104658 ba50db1c nrf_svd.timer%s
 D nrf_svd-twi.ads	20240925104658 68301534 nrf_svd.twi%s
 D nrf_svd-uart.ads	20240925104658 83bcebc8 nrf_svd.uart%s
-D protectedobjects.ads	20241106095306 3d86a2f0 protectedobjects%s
+D protectedobjects.ads	20241106145203 9e2401b5 protectedobjects%s
 D ringbuffer.ads	20241106095306 83f8adcf ringbuffer%s
 D sense.ads		20241106095306 5802e534 sense%s
 D sense.adb		20241106095306 ab2cac66 sense%b
@@ -150,9 +150,9 @@ G r c none [b sense 9 1 none] [delay_us microbit__timehighspeed 35 14 none]
 G r c none [b sense 9 1 none] [set nrf__gpio 94 13 none]
 G r c none [b sense 9 1 none] [add_reading ringbuffer 17 17 none]
 G r c none [b sense 9 1 none] [average ringbuffer 19 16 none]
-G r p none [b sense 9 1 none] [setflavg protectedobjects__protobjs 12 17 none]
-G r p none [b sense 9 1 none] [setfravg protectedobjects__protobjs 11 17 none]
-G r p none [b sense 9 1 none] [setbavg protectedobjects__protobjs 13 17 none]
+G r p none [b sense 9 1 none] [setflavg protectedobjects__protobjs 13 17 none]
+G r p none [b sense 9 1 none] [setfravg protectedobjects__protobjs 12 17 none]
+G r p none [b sense 9 1 none] [setbavg protectedobjects__protobjs 14 17 none]
 G r s gpio_point [sensetaskTK sense 2 9 none] [gpio_pointIP nrf__gpio 66 9 none]
 G r s gpio_configuration [sensetaskTK sense 2 9 none] [gpio_configurationIP nrf__gpio 58 9 none]
 G r c none [sensetaskTK sense 2 9 none] [configure_io nrf__gpio 117 14 none]
@@ -165,9 +165,9 @@ G r c none [sensetaskTK sense 2 9 none] [delay_us microbit__timehighspeed 35 14 
 G r c none [sensetaskTK sense 2 9 none] [set nrf__gpio 94 13 none]
 G r c none [sensetaskTK sense 2 9 none] [add_reading ringbuffer 17 17 none]
 G r c none [sensetaskTK sense 2 9 none] [average ringbuffer 19 16 none]
-G r p none [sensetaskTK sense 2 9 none] [setflavg protectedobjects__protobjs 12 17 none]
-G r p none [sensetaskTK sense 2 9 none] [setfravg protectedobjects__protobjs 11 17 none]
-G r p none [sensetaskTK sense 2 9 none] [setbavg protectedobjects__protobjs 13 17 none]
+G r p none [sensetaskTK sense 2 9 none] [setflavg protectedobjects__protobjs 13 17 none]
+G r p none [sensetaskTK sense 2 9 none] [setfravg protectedobjects__protobjs 12 17 none]
+G r p none [sensetaskTK sense 2 9 none] [setbavg protectedobjects__protobjs 14 17 none]
 X 1 ada.ads
 16K9*Ada 20e8 43|1r6 1r25
 X 4 a-reatim.ads
@@ -203,11 +203,11 @@ X 24 microbit-ultrasonic.ads
 9k18*Ultrasonic 25e24 43|6w15 12r26 13r26 14r25
 11V13 Read{23|3I11} 43|22s33[12] 23s33[13] 24s31[14]
 X 40 protectedobjects.ads
-4K9*protectedobjects 24e21 43|5w6 5r28
-11U17 SetFRAvg 43|26s22
-12U17 SetFLAvg 43|25s22
-13U17 SetBAvg 43|27s22
-23w4*Shared_Data{5W19} 43|25r10 26r10 27r10
+4K9*protectedobjects 25e21 43|5w6 5r28
+12U17 SetFRAvg 43|26s22
+13U17 SetFLAvg 43|25s22
+14U17 SetBAvg 43|27s22
+24w4*Shared_Data{6W19} 43|25r10 26r10 27r10
 X 41 ringbuffer.ads
 4K9*Ringbuffer 20e15 43|7w6 7r22 15r15 16r15 17r14
 9R12*Ringbuffer 13e17 43|15r26 16r26 17r25

@@ -18,10 +18,10 @@ package body protectedobjects is
          return BAvg;
       end GetBAvg;
 
-      function GetDir return Directions is
+      function GetState return State_Type is
       begin
-         return Dir;
-      end GetDir;
+         return State;
+      end GetState;
 
       procedure SetFRAvg(F : Float) is
       begin
@@ -38,9 +38,9 @@ package body protectedobjects is
          BAvg := F;
       end SetBAvg;
 
-      procedure SetDir(D : Directions) is
+      procedure SetState(S : State_Type) is
       begin
-         Dir := D;
-      end SetDir;
+         State := S;
+      end SetState;
    end ProtObjs;
 end protectedobjects;

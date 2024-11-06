@@ -20,7 +20,7 @@ RN
 RV STATIC_PRIORITIES
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U main%b		main.adb		ad6ef232 NE OO SU
+U main%b		main.adb		58da2242 NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.numerics%s	a-numeri.ads		a-numeri.ali
 W ada.numerics.elementary_functions%s  a-nuelfu.ads  a-nuelfu.ali
@@ -40,7 +40,6 @@ Z system%s		system.ads		system.ali
 Z system.tasking.restricted.stages%s  s-tarest.adb  s-tarest.ali
 W tasklist%s		tasklist.ads		tasklist.ali
 
-D act.ads		20241106095306 ac7b4621 act%s
 D ada.ads		20240605191041 76789da1 ada%s
 D a-except.ads		20240605191041 e7970cd9 ada.exceptions%s
 D a-finali.ads		20240605191041 bf4f806b ada.finalization%s
@@ -69,7 +68,7 @@ D microbit.ads		20240925104658 c5aa85df microbit%s
 D microbit-accelerometer.ads  20240925104658 fc78b8ce microbit.accelerometer%s
 D microbit-console.ads	20240925104658 0bb00661 microbit.console%s
 D microbit-iosfortasking.ads  20240925104658 7dfd8b70 microbit.iosfortasking%s
-D microbit-motordriver.ads  20241106122006 b63e1eb7 microbit.motordriver%s
+D microbit-motordriver.ads  20241106144353 b63e1eb7 microbit.motordriver%s
 D microbit-servos.ads	20240925104658 3dc96590 microbit.servos%s
 D microbit-timehighspeed.ads  20240925104658 1d0073c3 microbit.timehighspeed%s
 D microbit-types.ads	20240925104658 e97b8e18 microbit.types%s
@@ -130,58 +129,58 @@ D s-traent.ads		20240605191041 c81cbf8c system.traceback_entries%s
 D s-unstyp.ads		20240605191041 fa2a7f59 system.unsigned_types%s
 D s-wchcon.ads		20240605191041 d9032363 system.wch_con%s
 D s-wchstw.ads		20240605191041 2d112c01 system.wch_stw%s
-D tasklist.ads		20241106095306 2b2b83d6 tasklist%s
+D tasklist.ads		20241106150502 de9f53a6 tasklist%s
 D think.ads		20241106095306 a6355c0e think%s
 G a e
 G c Z b b [main standard 16 11 none]
 G r c none [main standard 16 11 none] [put_line microbit__console 43 14 none]
-X 2 ada.ads
-16K9*Ada 20e8 25|7r6 7r24 8r6 8r45 9r6 9r25
-X 7 a-numeri.ads
-16K13*Numerics 35e17 25|7w10 7r28 8r10 8r49
-X 8 a-nuelfu.ads
-41K22*Elementary_Functions[64|86] 25|8w19 8r58
-X 9 a-reatim.ads
-40K13*Real_Time 181e18 25|9w10 9r29
-X 17 dfr0548.ads
-35K9*DFR0548 92e12 25|10w6
-X 18 hal.ads
-34K9*HAL 166e8 25|12w6 12r15
-X 19 hal-gpio.ads
+X 1 ada.ads
+16K9*Ada 20e8 24|7r6 7r24 8r6 8r45 9r6 9r25
+X 6 a-numeri.ads
+16K13*Numerics 35e17 24|7w10 7r28 8r10 8r49
+X 7 a-nuelfu.ads
+41K22*Elementary_Functions[63|86] 24|8w19 8r58
+X 8 a-reatim.ads
+40K13*Real_Time 181e18 24|9w10 9r29
+X 16 dfr0548.ads
+35K9*DFR0548 92e12 24|10w6
+X 17 hal.ads
+34K9*HAL 166e8 24|12w6 12r15
+X 18 hal-gpio.ads
 47h9*GPIO_Point
-X 20 hal-i2c.ads
+X 19 hal-i2c.ads
 48h9*I2C_Port
-X 21 hal-spi.ads
+X 20 hal-spi.ads
 48h9*SPI_Port
-X 22 hal-uart.ads
+X 21 hal-uart.ads
 48h9*UART_Port
-X 24 lsm303agr.ads
-36K9*LSM303AGR 228e14 25|5w6 5r21
-X 25 main.adb
+X 23 lsm303agr.ads
+36K9*LSM303AGR 228e14 24|5w6 5r21
+X 24 main.adb
 16U11*Main 16b11 22l5 22t9
-X 26 microbit.ads
-57K9*MicroBit 25|1r6 1r32 2r6 2r27 3r6 4r6 4r26 6r6 11r6 11r28 14r5 26|114e13
-X 27 microbit-accelerometer.ads
-34K18*Accelerometer 25|6w15 27|44e27
-X 28 microbit-console.ads
-32K18*Console 25|11w15 11r37 28|49e21
-43U14*Put_Line 25|18s4
-X 30 microbit-motordriver.ads
-34K18*MotorDriver 25|1w15 1r41 30|69e25
-X 31 microbit-servos.ads
-34K18*Servos 25|2w15 2r36 31|52e20
-X 33 microbit-types.ads
-1K18*Types 25|4w15 4r35 33|5e19
-X 34 microbit-ultrasonic.ads
-9k18*Ultrasonic 25|3w15 34|25e24
-X 65 s-interr.ads
+X 25 microbit.ads
+57K9*MicroBit 24|1r6 1r32 2r6 2r27 3r6 4r6 4r26 6r6 11r6 11r28 14r5 25|114e13
+X 26 microbit-accelerometer.ads
+34K18*Accelerometer 24|6w15 26|44e27
+X 27 microbit-console.ads
+32K18*Console 24|11w15 11r37 27|49e21
+43U14*Put_Line 24|18s4
+X 29 microbit-motordriver.ads
+34K18*MotorDriver 24|1w15 1r41 29|69e25
+X 30 microbit-servos.ads
+34K18*Servos 24|2w15 2r36 30|52e20
+X 32 microbit-types.ads
+1K18*Types 24|4w15 4r35 32|5e19
+X 33 microbit-ultrasonic.ads
+9k18*Ultrasonic 24|3w15 33|25e24
+X 64 s-interr.ads
 97U14*Install_Restricted_Handlers_Sequential 98i<c,__gnat_attach_all_handlers>22
-X 76 s-secsta.ads
+X 75 s-secsta.ads
 46P9*SS_Stack_Ptr(43R9)
-X 83 s-taskin.ads
-398V13*Get_Sec_Stack{76|46P9} 399i<c,__gnat_get_secondary_stack>22
-X 86 s-tarest.ads
+X 82 s-taskin.ads
+398V13*Get_Sec_Stack{75|46P9} 399i<c,__gnat_get_secondary_stack>22
+X 85 s-tarest.ads
 232U14*Activate_All_Tasks_Sequential 233i<c,__gnat_activate_all_tasks>22
-X 91 tasklist.ads
-5K9*tasklist 25|13w6 91|6e13
+X 90 tasklist.ads
+5K9*tasklist 24|13w6 90|6e13
 

@@ -7,23 +7,30 @@ with MicroBit.MotorDriver; use MicroBit.MotorDriver;
 package body act is
    task body acttask is
       aclock : Time;
+      -- Procedure to update the shared direction and log it
+
    begin
       Put_Line("Started acting task.");
       loop
          aclock := Clock;
 
-         --  case Shared_Data.GetDir is
-         --     when Stop =>
-         --        Put_Line("Stop");
-         --  --        else
-         --  --           --  Update_Direction(ServoReading);
-         --  --            Put_Line("test ");
+         case Shared_Data.GetState is
+            when Stop =>
+               Put_Line("Stop");
+         --        else
+         --           --  Update_Direction(ServoReading);
+         --            Put_Line("test ");
 
-         --    when Forward =>
-         --        Put_Line("Forward");
-         --    when others =>
-         --            Put_Line("others");
-         --  end case;
+            when Forward =>
+               Put_Line("Forward");
+
+            --  when Servoreading =>
+            --     Put_Line("Servoreading");
+            --     delay(1.0);
+            --     Update_Direction(Forward);
+            when others =>
+                   Put_Line("others");
+         end case;
 
 
 
