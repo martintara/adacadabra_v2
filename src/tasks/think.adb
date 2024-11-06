@@ -6,7 +6,8 @@ with MicroBit.MotorDriver; use MicroBit.MotorDriver;
 
 package body think is
    task body thinktask is
-      aclock : Time;
+      timer : Time;
+      cpu_time : Time_Span;
       FLReading : Integer;
       FRReading : Integer;
       BReading : Integer;
@@ -14,23 +15,23 @@ package body think is
       -- Procedure to update the shared direction and log it
       procedure Update_State(S : State_Type) is
       begin
-         Shared_Data.SetState(S);
+         Brain.SetState(S);
          Put_Line("New State: " & State_Type'Image(S));
       end Update_State;
 
    begin
       Put_Line("Started thinking task.");
       loop
-         aclock := Clock;
-         FLReading := Integer(Shared_Data.GetFLAvg);
-         FRReading := Integer(Shared_Data.GetFRAvg);
-         BReading := Integer(Shared_Data.GetBAvg);
+         timer := Clock;
+         FLReading := Integer(Brain.GetFLAvg);
+         FRReading := Integer(Brain.GetFRAvg);
+         BReading := Integer(Brain.GetBAvg);
          --  Put_Line("FLS: " & Integer'Image(FLReading));
          --  Put_Line("FRS: " & Integer'Image(FRReading));
          --  Put_Line("BS: " & Integer'Image(BReading));
 
                   --  State machine logic
-         case Shared_Data.GetState is
+         case Brain.GetState is
             when Stop =>
                --  Put_Line("test ");
                if FLReading > 100 and FRReading > 100 then
@@ -52,7 +53,9 @@ package body think is
                    Put_Line("others");
          end case;
 
-         delay until aclock + Milliseconds(600);
+         cpu_time := Clock - timer;
+         Brain.SetThinkTime(cpu_time);
+         delay until timer + Milliseconds(600);
       end loop;
    end thinktask;
 end think;

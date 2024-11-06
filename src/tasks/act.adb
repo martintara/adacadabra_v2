@@ -6,15 +6,16 @@ with MicroBit.MotorDriver; use MicroBit.MotorDriver;
 
 package body act is
    task body acttask is
-      aclock : Time;
+      timer : Time;
+      cpu_time : Time_Span;
       -- Procedure to update the shared direction and log it
 
    begin
       Put_Line("Started acting task.");
       loop
-         aclock := Clock;
+         timer := Clock;
 
-         case Shared_Data.GetState is
+         case Brain.GetState is
             when Stop =>
                Put_Line("Stop");
          --        else
@@ -31,11 +32,9 @@ package body act is
             when others =>
                    Put_Line("others");
          end case;
-
-
-
-
-         delay until aclock + Seconds(1);
+         cpu_time := Clock - timer;
+         Brain.SetActTime(cpu_time);
+         delay until timer + Seconds(1);
       end loop;
    end acttask;
 end act;
