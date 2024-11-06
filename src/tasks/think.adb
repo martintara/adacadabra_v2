@@ -2,6 +2,7 @@ with Ada.Real_Time; use Ada.Real_Time;
 with MicroBit.Console; use MicroBit.Console;
 with MicroBit.Types; use MicroBit.Types;
 with protectedobjects; use protectedobjects;
+with MicroBit.MotorDriver; use MicroBit.MotorDriver;
 
 package body think is
    task body thinktask is
@@ -23,13 +24,9 @@ package body think is
          aclock := Clock;
 
          Put_Line("Started thinking task.");
-         --  FLReading := Integer(Shared_Data.GetFLAvg);
-         --  FRReading := Integer(Shared_Data.GetFRAvg);
-         --  BReading := Integer(Shared_Data.GetBAvg);
-         FLReading := 1;
-         FRReading := 2;
-         BReading := 3;
-
+         FLReading := Integer(Shared_Data.GetFLAvg);
+         FRReading := Integer(Shared_Data.GetFRAvg);
+         BReading := Integer(Shared_Data.GetBAvg);
          Put_Line("FLS: " & Integer'Image(FLReading));
          Put_Line("FRS: " & Integer'Image(FRReading));
          Put_Line("BS: " & Integer'Image(BReading));

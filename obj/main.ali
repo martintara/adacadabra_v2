@@ -20,7 +20,7 @@ RN
 RV STATIC_PRIORITIES
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U main%b		main.adb		6a360b9a NE OO SU
+U main%b		main.adb		ad6ef232 NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.numerics%s	a-numeri.ads		a-numeri.ali
 W ada.numerics.elementary_functions%s  a-nuelfu.ads  a-nuelfu.ali
@@ -40,7 +40,7 @@ Z system%s		system.ads		system.ali
 Z system.tasking.restricted.stages%s  s-tarest.adb  s-tarest.ali
 W tasklist%s		tasklist.ads		tasklist.ali
 
-D act.ads		20241030104135 ac7b4621 act%s
+D act.ads		20241106095306 ac7b4621 act%s
 D ada.ads		20240605191041 76789da1 ada%s
 D a-except.ads		20240605191041 e7970cd9 ada.exceptions%s
 D a-finali.ads		20240605191041 bf4f806b ada.finalization%s
@@ -64,7 +64,7 @@ D hal-spi.ads		20240925104659 fe139819 hal.spi%s
 D hal-uart.ads		20240925104659 d58316b4 hal.uart%s
 D interfac.ads		20240605191041 9111f9c1 interfaces%s
 D lsm303agr.ads		20240925104658 f2bab315 lsm303agr%s
-D main.adb		20241030153928 db553672 main%b
+D main.adb		20241106095306 db553672 main%b
 D microbit.ads		20240925104658 c5aa85df microbit%s
 D microbit-accelerometer.ads  20240925104658 fc78b8ce microbit.accelerometer%s
 D microbit-console.ads	20240925104658 0bb00661 microbit.console%s
@@ -89,7 +89,7 @@ D nrf_svd-spi.ads	20240925104658 6e2ffb69 nrf_svd.spi%s
 D nrf_svd-timer.ads	20240925104658 ba50db1c nrf_svd.timer%s
 D nrf_svd-twi.ads	20240925104658 68301534 nrf_svd.twi%s
 D nrf_svd-uart.ads	20240925104658 83bcebc8 nrf_svd.uart%s
-D sense.ads		20241030104135 5802e534 sense%s
+D sense.ads		20241106095306 5802e534 sense%s
 D system.ads		20240605191041 124d8146 system%s
 D s-bb.ads		20240605191041 09e072ae system.bb%s
 D s-bbbopa.ads		20240605191041 f68efaf0 system.bb.board_parameters%s
@@ -130,7 +130,8 @@ D s-traent.ads		20240605191041 c81cbf8c system.traceback_entries%s
 D s-unstyp.ads		20240605191041 fa2a7f59 system.unsigned_types%s
 D s-wchcon.ads		20240605191041 d9032363 system.wch_con%s
 D s-wchstw.ads		20240605191041 2d112c01 system.wch_stw%s
-D tasklist.ads		20241101120134 ec737a7e tasklist%s
+D tasklist.ads		20241106095306 2b2b83d6 tasklist%s
+D think.ads		20241106095306 a6355c0e think%s
 G a e
 G c Z b b [main standard 16 11 none]
 G r c none [main standard 16 11 none] [put_line microbit__console 43 14 none]

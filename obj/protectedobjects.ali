@@ -70,8 +70,8 @@ D nrf_svd-spi.ads	20240925104658 6e2ffb69 nrf_svd.spi%s
 D nrf_svd-timer.ads	20240925104658 ba50db1c nrf_svd.timer%s
 D nrf_svd-twi.ads	20240925104658 68301534 nrf_svd.twi%s
 D nrf_svd-uart.ads	20240925104658 83bcebc8 nrf_svd.uart%s
-D protectedobjects.ads	20241030153928 3d86a2f0 protectedobjects%s
-D protectedobjects.adb	20241030153928 2a9f408e protectedobjects%b
+D protectedobjects.ads	20241106095306 3d86a2f0 protectedobjects%s
+D protectedobjects.adb	20241106095306 2a9f408e protectedobjects%b
 D system.ads		20240605191041 124d8146 system%s
 D s-bb.ads		20240605191041 09e072ae system.bb%s
 D s-bbbopa.ads		20240605191041 f68efaf0 system.bb.board_parameters%s

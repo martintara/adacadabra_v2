@@ -9,10 +9,8 @@ package body act is
       Put_Line("Started acting task.");
       loop
          aclock := Clock;
-         Put_Line("acting");
 
-
-
+      Put_Line("acting.");
          delay until aclock + Seconds(2);
       end loop;
    end acttask;
