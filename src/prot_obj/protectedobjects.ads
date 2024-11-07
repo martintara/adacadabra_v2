@@ -3,12 +3,14 @@ with MicroBit.MotorDriver; use MicroBit.MotorDriver;
 with Ada.Real_Time; use Ada.Real_Time;
 
 package protectedobjects is
-   type State_Type is (Forward, Backward, Rotate_Left, Rotate_Right, Stop, Servoreading);
+   type RobotState is (Fwd, Bckwd, Rotate_L, Rotate_R, Rotate_180, Stp, Servoreading);
+   type ServoState is (ReadRight, ReadBack, ReadLeft);
    protected Brain is
       function GetFRAvg return Float;
       function GetFLAvg return Float;
       function GetBAvg return Float;
-      function GetState return State_Type;
+      function GetRobotState return RobotState;
+      function GetServoState return ServoState;
       function GetSenseTime return Time_Span;
       function GetThinkTime return Time_Span;
       function GetActTime return Time_Span;
@@ -16,7 +18,8 @@ package protectedobjects is
       procedure SetFRAvg(F : Float);
       procedure SetFLAvg(F : Float);
       procedure SetBAvg(F : Float);
-      procedure SetState(S : State_Type);
+      procedure SetRobotState(S : RobotState);
+      procedure SetServoState(S : ServoState);
       procedure SetSenseTime(D : Time_Span);
       procedure SetThinkTime(D : Time_Span);
       procedure SetActTime(D : Time_Span);
@@ -24,7 +27,8 @@ package protectedobjects is
       FRAvg : Float := 0.0;
       FLAvg : Float := 0.0;
       BAvg : Float := 0.0;
-      State : State_Type := Stop;
+      RState : RobotState := Stp;
+      SState : ServoState := ReadRight;
 
       SenseTime : Time_Span := Milliseconds(0);
       ThinkTime : Time_Span := Milliseconds(0);

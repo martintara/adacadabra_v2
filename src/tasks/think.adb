@@ -10,13 +10,16 @@ package body think is
       cpu_time : Time_Span;
       FLReading : Integer;
       FRReading : Integer;
-      BReading : Integer;
+      type Sensor_Array is array (1 .. 3) of Integer;
+      Sensors : Sensor_Array := (0, 0, 0);
+      Max_Reading : Integer := 0;
+      Max_Reading_Sensor : Integer := 0;
 
       -- Procedure to update the shared direction and log it
-      procedure Update_State(S : State_Type) is
+      procedure Update_State(S : RobotState) is
       begin
-         Brain.SetState(S);
-         Put_Line("New State: " & State_Type'Image(S));
+         Brain.SetRobotState(S);
+         --Put_Line("think: changed state to: " & RobotState'Image(S));
       end Update_State;
 
    begin
@@ -25,32 +28,49 @@ package body think is
          timer := Clock;
          FLReading := Integer(Brain.GetFLAvg);
          FRReading := Integer(Brain.GetFRAvg);
-         BReading := Integer(Brain.GetBAvg);
-         --  Put_Line("FLS: " & Integer'Image(FLReading));
-         --  Put_Line("FRS: " & Integer'Image(FRReading));
-         --  Put_Line("BS: " & Integer'Image(BReading));
 
                   --  State machine logic
-         case Brain.GetState is
-            when Stop =>
-               --  Put_Line("test ");
-               if FLReading > 100 and FRReading > 100 then
-                  Update_State(Forward);
+         case Brain.GetRobotState is
+            when Stp =>
+               delay until Clock + Milliseconds(800);
+               if ((FLReading + FRReading) / 2) > 50 then
+                  Update_State(Fwd);
                else
                   Update_State(Servoreading);
                end if;
-           when Forward =>
-               if FLReading < 100 and FRReading < 100 then
-                  Update_State(Stop);
+            when Fwd =>
+               if ((FLReading + FRReading) / 2) < 50 then
+                  Update_State(Stp);
                end if;
-
-           when Servoreading =>
-                   Put_Line("Reading servos");
-                   delay 3.0;
-                   Update_State(Forward);
-
-           when others =>
-                   Put_Line("others");
+            when Servoreading =>
+               Brain.SetServoState(ReadRight);
+               delay until Clock + Milliseconds(1500);
+               Sensors(1) := Integer(Brain.GetBAvg);
+               Brain.SetServoState(ReadBack);
+               delay until Clock + Milliseconds(1500);
+               Sensors(2) := Integer(Brain.GetBAvg);
+               Brain.SetServoState(ReadLeft);
+               delay until Clock + Milliseconds(1500);
+               Sensors(3) := Integer(Brain.GetBAvg);
+               Max_Reading := 0;
+               for I in Sensors'Range loop
+                  if Sensors(I) > Max_Reading then
+                     Max_Reading := Sensors(I);
+                     Max_Reading_Sensor := I;
+                  end if;
+               end loop;
+               case Max_Reading_Sensor is
+                  when 1 =>
+                     Update_State(Rotate_R);
+                  when 2 =>
+                     Update_State(Rotate_180);
+                  when 3 =>
+                     Update_State(Rotate_L);
+                  when others =>
+                     Put_Line("think: something very strange happened");
+               end case;
+            when others =>
+               null;
          end case;
 
          cpu_time := Clock - timer;

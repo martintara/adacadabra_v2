@@ -18,10 +18,15 @@ package body protectedobjects is
          return BAvg;
       end GetBAvg;
 
-      function GetState return State_Type is
+      function GetRobotState return RobotState is
       begin
-         return State;
-      end GetState;
+         return RState;
+      end GetRobotState;
+
+      function GetServoState return ServoState is
+      begin
+         return SState;
+      end GetServoState;
 
       function GetSenseTime return Time_Span is
       begin
@@ -53,10 +58,15 @@ package body protectedobjects is
          BAvg := F;
       end SetBAvg;
 
-      procedure SetState(S : State_Type) is
+      procedure SetRobotState(S : RobotState) is
       begin
-         State := S;
-      end SetState;
+         RState := S;
+      end SetRobotState;
+
+      procedure SetServoState(S : ServoState) is
+      begin
+         SState := S;
+      end SetServoState;
 
       procedure SetSenseTime(D : Time_Span) is
       begin
