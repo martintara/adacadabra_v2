@@ -1,5 +1,6 @@
 with MicroBit.Types; use MicroBit.Types;
 with MicroBit.MotorDriver; use MicroBit.MotorDriver;
+with HAL; use HAL;
 
 package body protectedobjects is
    protected body Brain is
@@ -28,6 +29,11 @@ package body protectedobjects is
          return SState;
       end GetServoState;
 
+      function GetMoveUntil return Time is
+      begin
+         return MoveUntil;
+      end GetMoveUntil;
+
       function GetSenseTime return Time_Span is
       begin
          return SenseTime;
@@ -42,6 +48,21 @@ package body protectedobjects is
       begin
          return ActTime;
       end GetActTime;
+
+      function GetSenseMaxTime return Time_Span is
+      begin
+         return SenseMaxTime;
+      end GetSenseMaxTime;
+
+      function GetThinkMaxTime return Time_Span is
+      begin
+         return ThinkMaxTime;
+      end GetThinkMaxTime;
+
+      function GetActMaxTime return Time_Span is
+      begin
+         return ActMaxTime;
+      end GetActMaxTime;
 
       procedure SetFRAvg(F : Float) is
       begin
@@ -68,19 +89,33 @@ package body protectedobjects is
          SState := S;
       end SetServoState;
 
+      procedure SetMoveUntil(T : Time) is
+      begin
+         MoveUntil := T;
+      end SetMoveUntil;
+
       procedure SetSenseTime(D : Time_Span) is
       begin
          SenseTime := D;
+         if D > SenseMaxTime then
+            SenseMaxTime := D;
+         end if;
       end SetSenseTime;
 
       procedure SetThinkTime(D : Time_Span) is
       begin
          ThinkTime := D;
+         if D > ThinkMaxTime then
+            ThinkMaxTime := D;
+         end if;
       end SetThinkTime;
 
       procedure SetActTime(D : Time_Span) is
       begin
          ActTime := D;
+         if D > ActMaxTime then
+            ActMaxTime := D;
+         end if;
       end SetActTime;
    end Brain;
 end protectedobjects;

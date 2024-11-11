@@ -11,36 +11,41 @@ package body act is
    task body acttask is
       timer : Time;
       cpu_time : Time_Span;
+      MAX_SPEED : Speeds := (4095, 4095, 4095, 4095);
       ServoPin : constant Servo_Pin_Id := 1;
-      Deg_90 : constant Integer := 800; --should be approx 90 degrees if turning for this many milliseconds
    begin
       Put_Line("Started acting task.");
       loop
          timer := Clock;
 
          case Brain.GetRobotState is
-            when Stp =>
-               MotorDriver.Drive(Stop, (4095,4095,4095,4095));
             when Fwd =>
-               MotorDriver.Drive(Forward, (4095,4095,4095,4095));
+               MotorDriver.Drive(Forward, MAX_SPEED);
             when Bckwd =>
-               MotorDriver.Drive(Backward, (4095,4095,4095,4095));
+               MotorDriver.Drive(Backward, MAX_SPEED);
             when Rotate_L =>
-               Go(ServoPin, Servo_Set_Point(180.0)); --reset servo to the position it first reads from
-               MotorDriver.Drive(Rotating_Left, (4095,4095,4095,4095));
-               delay until Clock + Milliseconds(Deg_90);
-               Brain.SetRobotState(Stp);
+               if Clock > Brain.GetMoveUntil then
+                  MotorDriver.Drive(Stop, MAX_SPEED);
+                  Brain.SetRobotState(Fwd);
+               else
+                  MotorDriver.Drive(Rotating_Left, MAX_SPEED);
+               end if;
             when Rotate_R =>
-               Go(ServoPin, Servo_Set_Point(180.0)); --reset servo to the position it first reads from
-               MotorDriver.Drive(Rotating_Right, (4095,4095,4095,4095));
-               delay until Clock + Milliseconds(Deg_90);
-               Brain.SetRobotState(Stp);
+               if Clock > Brain.GetMoveUntil then
+                  MotorDriver.Drive(Stop, MAX_SPEED);
+                  Brain.SetRobotState(Fwd);
+               else
+                  MotorDriver.Drive(Rotating_Right, MAX_SPEED);
+               end if;
             when Rotate_180 =>
-               Go(ServoPin, Servo_Set_Point(180.0)); --reset servo to the position it first reads from
-               MotorDriver.Drive(Rotating_Left, (4095,4095,4095,4095));
-               delay until Clock + Milliseconds(Deg_90 * 2);
-               Brain.SetRobotState(Stp);
+               if Clock > Brain.GetMoveUntil then
+                  MotorDriver.Drive(Stop, MAX_SPEED);
+                  Brain.SetRobotState(Fwd);
+               else
+                  MotorDriver.Drive(Rotating_Left, MAX_SPEED);
+               end if;
             when Servoreading =>
+               MotorDriver.Drive(Stop, MAX_SPEED);
                case Brain.GetServoState is
                   when ReadRight =>
                      Go(ServoPin, Servo_Set_Point(180.0));

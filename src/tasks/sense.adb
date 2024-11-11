@@ -4,6 +4,7 @@ with MicroBit.Types; use MicroBit.Types;
 with MicroBit.Console; use MicroBit.Console;
 with protectedobjects; use protectedobjects;
 with MicroBit.Ultrasonic;
+with MicroBit.DisplayRT; use MicroBit.DisplayRT;
 with Ringbuffer; use Ringbuffer;
 
 package body sense is
@@ -18,11 +19,40 @@ package body sense is
       BBuf : Ringbuffer.Ringbuffer; --Back Ringbuffer
    begin
       Put_Line("Started sensing task.");
+
       loop
          timer := Clock;
-         Add_Reading(FLBuf, FLS.Read);
-         Add_Reading(FRBuf, FRS.Read);
-         Add_Reading(BBuf, BS.Read);
+
+         begin
+            Add_Reading(FLBuf, FLS.Read);
+            MicroBit.DisplayRT.Clear(3, 1);
+         exception
+            when Ringbuffer.Bad_Reading =>
+               MicroBit.DisplayRT.Set(3, 1);
+            when others =>
+               null;
+         end;
+
+         begin
+            Add_Reading(FRBuf, FRS.Read);
+            MicroBit.DisplayRT.Clear(1, 1);
+         exception
+            when Ringbuffer.Bad_Reading =>
+               MicroBit.DisplayRT.Set(1, 1);
+            when others =>
+               null;
+         end;
+
+         begin
+            Add_Reading(BBuf, BS.Read);
+            MicroBit.DisplayRT.Clear(2, 3);
+         exception
+            when Ringbuffer.Bad_Reading =>
+               MicroBit.DisplayRT.Set(2, 3);
+            when others =>
+               null;
+         end;
+
          Brain.SetFLAvg(Average(FLBuf));
          Brain.SetFRAvg(Average(FRBuf));
          Brain.SetBAvg(Average(BBuf));

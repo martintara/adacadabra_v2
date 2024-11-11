@@ -4,6 +4,8 @@ with MicroBit.Types; use MicroBit.Types;
 package Ringbuffer is
       Max_Size : constant Integer := 10;
 
+      Bad_Reading : exception;
+
       type Buffer_Array is array (0 .. Max_Size - 1) of Distance_cm;
 
       type Ringbuffer is record

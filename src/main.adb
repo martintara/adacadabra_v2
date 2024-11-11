@@ -18,18 +18,19 @@ procedure Main with Priority => 0 is
    procedure print_cpu_times is
       timer : Time;
    begin
-      loop
-         timer := Clock;
-         Put_Line("sense_time: " & Duration'Image(To_Duration(Brain.GetSenseTime)) & " seconds");
-         Put_Line("think_time: " & Duration'Image(To_Duration(Brain.GetThinkTime)) & " seconds");
-         Put_Line("act_time: " & Duration'Image(To_Duration(Brain.GetActTime)) & " seconds");
-         delay until timer + Seconds(2);
-      end loop;
+      timer := Clock;
+      Put("sense_time: " & Duration'Image(To_Duration(Brain.GetSenseTime)) & " seconds");
+      Put_Line(" max value: " & Duration'Image(To_Duration(Brain.GetSenseMaxTime)) & " seconds.");
+      Put("think_time: " & Duration'Image(To_Duration(Brain.GetThinkTime)) & " seconds");
+      Put_Line(" max value: " & Duration'Image(To_Duration(Brain.GetThinkMaxTime)) & " seconds.");
+      Put("act_time: " & Duration'Image(To_Duration(Brain.GetActTime)) & " seconds");
+      Put_Line(" max value: " & Duration'Image(To_Duration(Brain.GetActMaxTime)) & " seconds.");
+      delay until timer + Seconds(2);
    end print_cpu_times;
 begin
    Put_Line("Starting main loop.");
    loop
-      --print_cpu_times;
+      print_cpu_times;
       null;
    end loop;
 end Main;

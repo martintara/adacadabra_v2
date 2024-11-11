@@ -1,3 +1,5 @@
+with priorities;
+
 package think is
-   task thinktask with Priority => 1;
+   task thinktask with Priority => priorities.ThinkPriority;
 end think;
