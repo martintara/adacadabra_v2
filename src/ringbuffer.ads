@@ -2,7 +2,7 @@ with MicroBit.MotorDriver; use MicroBit.MotorDriver;
 with MicroBit.Types; use MicroBit.Types;
 
 package Ringbuffer is
-      Max_Size : constant Integer := 10;
+      Max_Size : constant Integer := 5;
 
       Bad_Reading : exception;
 

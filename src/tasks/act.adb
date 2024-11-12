@@ -5,6 +5,7 @@ with Ada.Real_Time; use Ada.Real_Time;
 with MicroBit.Console; use MicroBit.Console;
 with Microbit.Types; use Microbit.Types;
 with protectedobjects; use protectedobjects;
+with robotconstants;
 use MicroBit;
 
 package body act is
@@ -21,7 +22,6 @@ package body act is
          case Brain.GetRobotState is
             when Fwd =>
                MotorDriver.Drive(Forward, MAX_SPEED);
-               null;
             when Bckwd =>
                MotorDriver.Drive(Backward, MAX_SPEED);
             when Rotate_L =>
@@ -61,7 +61,7 @@ package body act is
          end case;
          cpu_time := Clock - timer;
          Brain.SetActTime(cpu_time);
-         delay until timer + Milliseconds(100);
+         delay until timer + robotconstants.ActDeadline;
       end loop;
    end acttask;
 end act;

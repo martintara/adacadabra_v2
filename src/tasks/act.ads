@@ -1,5 +1,5 @@
-with priorities;
+with robotconstants;
 
 package act is
-   task acttask with Priority => priorities.ActPriority;
+   task acttask with Priority => robotconstants.ActPriority;
 end act;

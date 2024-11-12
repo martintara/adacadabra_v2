@@ -2,6 +2,7 @@ with Ada.Real_Time; use Ada.Real_Time;
 with MicroBit.Console; use MicroBit.Console;
 with MicroBit.Types; use MicroBit.Types;
 with protectedobjects; use protectedobjects;
+with robotconstants;
 with MicroBit.MotorDriver; use MicroBit.MotorDriver;
 
 package body think is
@@ -76,7 +77,7 @@ package body think is
 
          cpu_time := Clock - timer;
          Brain.SetThinkTime(cpu_time);
-         delay until timer + Milliseconds(100);
+         delay until timer + robotconstants.ThinkDeadline;
       end loop;
    end thinktask;
 end think;

@@ -75,7 +75,7 @@ package body sense is
          cpu_time := Clock - timer;
          Brain.SetSenseTime(cpu_time);
          --HC-SR04 datasheet suggests a sensor reading interval of 60ms
-         delay until timer + Milliseconds(60);
+         delay until timer + robotconstants.SenseDeadline;
       end loop;
    end sensetask;
 end sense;
