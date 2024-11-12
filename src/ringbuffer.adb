@@ -8,10 +8,14 @@ package body Ringbuffer is
       end loop;
    end Initialize;
 
-   procedure Add_Reading(RB : in out Ringbuffer; R : Distance_cm) is
+   procedure Add_Reading(RB : in out Ringbuffer; R : Distance_cm; E : Boolean) is
    begin
       if Integer(R) < 2 then --bad value, don't add to buffer
-         raise Bad_Reading;
+         if E then --throw exception if bad value?
+            raise Bad_Reading;
+         else
+            return;
+         end if;
       end if;
       RB.Buffer(RB.Head) := R;
       RB.Head := (RB.Head + 1) mod Max_Size;

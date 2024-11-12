@@ -76,7 +76,7 @@ package body think is
 
          cpu_time := Clock - timer;
          Brain.SetThinkTime(cpu_time);
-         delay until timer + Milliseconds(600);
+         delay until timer + Milliseconds(100);
       end loop;
    end thinktask;
 end think;

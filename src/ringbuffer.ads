@@ -16,7 +16,7 @@ package Ringbuffer is
 
       procedure Initialize(RB : out Ringbuffer);
 
-      procedure Add_Reading(RB : in out Ringbuffer; R : Distance_cm);
+      procedure Add_Reading(RB : in out Ringbuffer; R : Distance_cm; E : Boolean);
 
       function Average(RB : Ringbuffer) return Float;
 end Ringbuffer;

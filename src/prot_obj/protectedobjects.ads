@@ -18,6 +18,7 @@ package protectedobjects is
       function GetSenseMaxTime return Time_Span;
       function GetThinkMaxTime return Time_Span;
       function GetActMaxTime return Time_Span;
+      function GetUseExceptions return Boolean;
 
       procedure SetFRAvg(F : Float);
       procedure SetFLAvg(F : Float);
@@ -28,6 +29,9 @@ package protectedobjects is
       procedure SetSenseTime(D : Time_Span);
       procedure SetThinkTime(D : Time_Span);
       procedure SetActTime(D : Time_Span);
+      procedure ClearMaxTimes;
+      procedure SetUseExceptions(B : Boolean);
+
    private
       FRAvg : Float := 0.0;
       FLAvg : Float := 0.0;
@@ -42,5 +46,6 @@ package protectedobjects is
       SenseMaxTime : Time_Span := Milliseconds(0);
       ThinkMaxTime : Time_Span := Milliseconds(0);
       ActMaxTime : Time_Span := Milliseconds(0);
+      UseExceptions : Boolean := False;
    end Brain;
 end protectedobjects;

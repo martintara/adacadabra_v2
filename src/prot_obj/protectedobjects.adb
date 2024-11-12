@@ -1,5 +1,7 @@
 with MicroBit.Types; use MicroBit.Types;
+with MicroBit.Console; use MicroBit.Console;
 with MicroBit.MotorDriver; use MicroBit.MotorDriver;
+with MicroBit.DisplayRT; use MicroBit.DisplayRT;
 with HAL; use HAL;
 
 package body protectedobjects is
@@ -64,6 +66,11 @@ package body protectedobjects is
          return ActMaxTime;
       end GetActMaxTime;
 
+      function GetUseExceptions return Boolean is
+      begin
+         return UseExceptions;
+      end GetUseExceptions;
+
       procedure SetFRAvg(F : Float) is
       begin
          FRAvg := F;
@@ -117,5 +124,23 @@ package body protectedobjects is
             ActMaxTime := D;
          end if;
       end SetActTime;
+
+      procedure ClearMaxTimes is
+      begin
+         SenseMaxTime := Milliseconds(0);
+         ThinkMaxTime := Milliseconds(0);
+         ActMaxTime := Milliseconds(0);
+         Put_Line("Reset max values");
+      end ClearMaxTimes;
+
+      procedure SetUseExceptions(B : Boolean) is
+      begin
+         UseExceptions := B;
+         if UseExceptions then
+            MicroBit.DisplayRT.Set(2, 2);
+         else
+            MicroBit.DisplayRT.Clear(2, 2);
+         end if;
+      end SetUseExceptions;
    end Brain;
 end protectedobjects;

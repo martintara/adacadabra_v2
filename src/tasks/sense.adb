@@ -17,14 +17,11 @@ package body sense is
       FLBuf : Ringbuffer.Ringbuffer; --FrontLeft Ringbuffer
       FRBuf : Ringbuffer.Ringbuffer; --FrontRight Ringbuffer
       BBuf : Ringbuffer.Ringbuffer; --Back Ringbuffer
-   begin
-      Put_Line("Started sensing task.");
 
-      loop
-         timer := Clock;
-
+      procedure sense_with_exceptions is
+      begin
          begin
-            Add_Reading(FLBuf, FLS.Read);
+            Add_Reading(FLBuf, FLS.Read, True);
             MicroBit.DisplayRT.Clear(3, 1);
          exception
             when Ringbuffer.Bad_Reading =>
@@ -34,7 +31,7 @@ package body sense is
          end;
 
          begin
-            Add_Reading(FRBuf, FRS.Read);
+            Add_Reading(FRBuf, FRS.Read, True);
             MicroBit.DisplayRT.Clear(1, 1);
          exception
             when Ringbuffer.Bad_Reading =>
@@ -44,7 +41,7 @@ package body sense is
          end;
 
          begin
-            Add_Reading(BBuf, BS.Read);
+            Add_Reading(BBuf, BS.Read, True);
             MicroBit.DisplayRT.Clear(2, 3);
          exception
             when Ringbuffer.Bad_Reading =>
@@ -52,6 +49,25 @@ package body sense is
             when others =>
                null;
          end;
+      end sense_with_exceptions;
+
+      procedure sense_without_exceptions is
+      begin
+         Add_Reading(FLBuf, FLS.Read, False);
+         Add_Reading(FRBuf, FRS.Read, False);
+         Add_Reading(BBuf, BS.Read, False);
+      end sense_without_exceptions;
+   begin
+      Put_Line("Started sensing task.");
+
+      loop
+         timer := Clock;
+
+         if Brain.GetUseExceptions then
+            sense_with_exceptions;
+         else
+            sense_without_exceptions;
+         end if;
 
          Brain.SetFLAvg(Average(FLBuf));
          Brain.SetFRAvg(Average(FRBuf));

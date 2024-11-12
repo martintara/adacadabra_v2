@@ -21,11 +21,13 @@ package body act is
          case Brain.GetRobotState is
             when Fwd =>
                MotorDriver.Drive(Forward, MAX_SPEED);
+               null;
             when Bckwd =>
                MotorDriver.Drive(Backward, MAX_SPEED);
             when Rotate_L =>
                if Clock > Brain.GetMoveUntil then
                   MotorDriver.Drive(Stop, MAX_SPEED);
+                  Go(ServoPin, Servo_Set_Point(100.0));
                   Brain.SetRobotState(Fwd);
                else
                   MotorDriver.Drive(Rotating_Left, MAX_SPEED);
@@ -33,6 +35,7 @@ package body act is
             when Rotate_R =>
                if Clock > Brain.GetMoveUntil then
                   MotorDriver.Drive(Stop, MAX_SPEED);
+                  Go(ServoPin, Servo_Set_Point(100.0));
                   Brain.SetRobotState(Fwd);
                else
                   MotorDriver.Drive(Rotating_Right, MAX_SPEED);
@@ -40,6 +43,7 @@ package body act is
             when Rotate_180 =>
                if Clock > Brain.GetMoveUntil then
                   MotorDriver.Drive(Stop, MAX_SPEED);
+                  Go(ServoPin, Servo_Set_Point(100.0));
                   Brain.SetRobotState(Fwd);
                else
                   MotorDriver.Drive(Rotating_Left, MAX_SPEED);
