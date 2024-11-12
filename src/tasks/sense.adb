@@ -21,10 +21,11 @@ package body sense is
       procedure sense_with_exceptions is
       begin
          begin
-            Add_Reading(FLBuf, FLS.Read, True);
-            MicroBit.DisplayRT.Clear(3, 1);
+            Add_Reading(FLBuf, FLS.Read, True); --store sensor reading in ringbuffer
+            MicroBit.DisplayRT.Clear(3, 1); --if it went well, clear the bad reading led
          exception
             when Ringbuffer.Bad_Reading =>
+               --set a led on the microbit led matrix to indicate bad reading on this sensor
                MicroBit.DisplayRT.Set(3, 1);
             when others =>
                null;
@@ -59,22 +60,25 @@ package body sense is
       end sense_without_exceptions;
    begin
       Put_Line("Started sensing task.");
-
+      Initialize(FLBuf);
+      Initialize(FRBuf);
+      Initialize(BBuf);
       loop
          timer := Clock;
 
-         if Brain.GetUseExceptions then
+         if Brain.GetUseExceptions then --do we raise exceptions when the sensor returns 0?
             sense_with_exceptions;
-         else
+         else --no? then we just return instead of raising an exception
             sense_without_exceptions;
          end if;
 
+         --compute average sensor reading and store them in the protected object
          Brain.SetFLAvg(Average(FLBuf));
          Brain.SetFRAvg(Average(FRBuf));
          Brain.SetBAvg(Average(BBuf));
-         cpu_time := Clock - timer;
-         Brain.SetSenseTime(cpu_time);
-         --HC-SR04 datasheet suggests a sensor reading interval of 60ms
+
+         cpu_time := Clock - timer; --get the execution time for this task
+         Brain.SetSenseTime(cpu_time); --store it in the protected object
          delay until timer + robotconstants.SenseDeadline;
       end loop;
    end sensetask;

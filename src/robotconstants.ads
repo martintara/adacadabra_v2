@@ -5,7 +5,9 @@ package robotconstants is
    ThinkPriority : constant Integer := 2;
    ActPriority : constant Integer := 3;
 
-   SenseDeadline : Time_Span := Milliseconds(160);
-   ThinkDeadline : Time_Span := Milliseconds(100);
-   ActDeadline : Time_Span := Milliseconds(100);
+   SenseDeadline : constant Time_Span := Milliseconds(160);
+   ThinkDeadline : constant Time_Span := Milliseconds(100);
+   ActDeadline : constant Time_Span := Milliseconds(100);
+
+   ObstacleDistanceTolerance : constant Integer := 20;
 end robotconstants;
