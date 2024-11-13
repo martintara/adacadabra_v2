@@ -30,6 +30,10 @@ package body think is
                   Brain.SetServoState(ReadRight); --look to the right
                   Brain.SetRobotState(Servoreading); --switch to the servo reading state
                end if;
+            when Rotate_L | Rotate_R | Rotate_180 =>
+               if Clock > Brain.GetMoveUntil then --if the robot has rotated long enough
+                  Brain.SetRobotState(Fwd); --go back to moving forward
+               end if;
             when Servoreading => --read from the rear sensor on a servo
                case Brain.GetServoState is
                   when ReadRight =>

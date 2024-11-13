@@ -24,16 +24,12 @@ package body act is
                MotorDriver.Drive(Forward, MAX_SPEED);
             when Bckwd => --I don't think we ever used this
                MotorDriver.Drive(Backward, MAX_SPEED);
+            when Rotate_L | Rotate_180 =>
+               Go(ServoPin, Servo_Set_Point(100.0)); --reset servo to back position
+               MotorDriver.Drive(Rotating_Left, MAX_SPEED);
             when Rotate_L | Rotate_R | Rotate_180 =>
-               if Clock > Brain.GetMoveUntil then --if the robot has rotated long enough
-                  MotorDriver.Drive(Stop, MAX_SPEED); --then stop rotating
-                  Go(ServoPin, Servo_Set_Point(100.0)); --reset servo to back position
-                  Brain.SetRobotState(Fwd); --start moving forward again
-               elsif Brain.GetRobotState = Rotate_R then
-                  MotorDriver.Drive(Rotating_Right, MAX_SPEED);
-               else
-                  MotorDriver.Drive(Rotating_Left, MAX_SPEED);
-               end if;
+               Go(ServoPin, Servo_Set_Point(100.0)); --reset servo to back position
+               MotorDriver.Drive(Rotating_Right, MAX_SPEED);
             when Servoreading =>
                MotorDriver.Drive(Stop, MAX_SPEED);
                case Brain.GetServoState is
