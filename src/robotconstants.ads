@@ -1,6 +1,7 @@
 with Ada.Real_Time; use Ada.Real_Time;
 
 package robotconstants is
+   --LOWER number = LESS important = LOWER priority
    SensePriority : constant Integer := 1;
    ThinkPriority : constant Integer := 2;
    ActPriority : constant Integer := 3;
