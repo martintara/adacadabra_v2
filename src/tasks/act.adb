@@ -27,7 +27,7 @@ package body act is
             when Rotate_L | Rotate_180 =>
                Go(ServoPin, Servo_Set_Point(100.0)); --reset servo to back position
                MotorDriver.Drive(Rotating_Left, MAX_SPEED);
-            when Rotate_L | Rotate_R | Rotate_180 =>
+            when Rotate_R =>
                Go(ServoPin, Servo_Set_Point(100.0)); --reset servo to back position
                MotorDriver.Drive(Rotating_Right, MAX_SPEED);
             when Servoreading =>
